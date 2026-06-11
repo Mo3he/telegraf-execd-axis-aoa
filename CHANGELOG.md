@@ -26,7 +26,11 @@ Initial release of the `axis_aoa` Telegraf external `execd` input plugin.
 
 ### Tested with
 
-- Verified against an Axis device (firmware AOA API 1.6) with a Crossline
-  Counting scenario, confirming serial discovery and accumulated-count output.
+- Verified against an Axis device (firmware AOA API 1.6) with both a Crossline
+  Counting scenario (`getAccumulatedCounts`) and an Occupancy in Area scenario
+  (`getOccupancy`), confirming serial discovery and counting output for both.
   The plugin tolerates the device's lowercase `timestamp` key, millisecond
-  timestamps with numeric timezone offsets, and `total`-prefixed class keys.
+  timestamps with numeric timezone offsets, and the differing class-key naming
+  between methods (e.g. `total_human` for crossline vs `human` for occupancy).
+- Validated end to end through Telegraf `inputs.execd` into InfluxDB v2, with
+  metrics written to and read back from the target bucket.
