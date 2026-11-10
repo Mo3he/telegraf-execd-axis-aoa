@@ -3,7 +3,7 @@ module github.com/Mo3he/telegraf-execd-axis-aoa
 go 1.26.0
 
 require (
-	github.com/influxdata/telegraf v1.39.0
+	github.com/influxdata/telegraf v1.40.3
 	github.com/stretchr/testify v1.11.1
 )
 
